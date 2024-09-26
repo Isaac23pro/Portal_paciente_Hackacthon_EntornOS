@@ -1,4 +1,7 @@
-import os
+# settings.py
+
+import os  # Importa el módulo os para manejar rutas de archivos
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,6 +29,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    
+    'admin_panel',            # Añadir aplicación de administración
+    'autenticacion',          # Añadir aplicación de autenticación
+    'citas',                  # Añadir aplicación de citas
+    'pacientes',              # Añadir aplicación de pacientes
+    'recursos_educativos',    # Añadir aplicación de recursos educativos
+    'vacunacion',             # Añadir aplicación de vacunación
+
+    
 ]
 
 MIDDLEWARE = [
@@ -62,14 +75,16 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'sistema_medico.db'),  
+        'NAME': BASE_DIR / 'db.sqlite3',
+        #'NAME': BASE_DIR / '/home/hack4/Documentos/10 HACKATHON/01 Reto-Portal_Salud/portal paciente/DATAbase/sistema_medico.db',  # Ruta completa a la base de datos
+    }  
     }
-}
+
 
 
 # Password validation
